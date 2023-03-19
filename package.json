@@ -4,7 +4,7 @@
   "description": "Backend starter template",
   "main": "dist/server.js",
   "repository": "https://github.com/SecretLodge/CHATGPT",
-  "author": "backmeupplz <backmeupplz@gmail.com>",
+  "author": "notuchmeplz",
   "license": "MIT",
   "scripts": {
     "distribute": "yarn build && node dist/server.js",
