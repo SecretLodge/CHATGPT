@@ -35,7 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const amala_1 = require("amala");
 const getAnswerGPT_1 = require("@/helpers/getAnswerGPT");
 let ChatController = class ChatController {
-    search(_a) {
+    gpt(_a) {
         var messages = __rest(_a, []);
         return __awaiter(this, void 0, void 0, function* () {
             return yield (0, getAnswerGPT_1.default)(messages);
@@ -48,7 +48,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Array]),
     __metadata("design:returntype", Promise)
-], ChatController.prototype, "search", null);
+], ChatController.prototype, "gpt", null);
 ChatController = __decorate([
     (0, amala_1.Controller)('/chat')
 ], ChatController);
