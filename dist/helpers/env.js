@@ -9,6 +9,8 @@ dotenv.config({ path: (0, path_1.resolve)((0, process_1.cwd)(), '.env') });
 exports.default = (0, envalid_1.cleanEnv)(process.env, {
     CHATGPT_API: (0, envalid_1.str)(),
     CHATGPT_KEY: (0, envalid_1.str)(),
+    GOOGLE_KEY: (0, envalid_1.str)(),
+    GOOGLE_CX: (0, envalid_1.str)(),
     PORT: (0, envalid_1.num)({ default: 1337 }),
 });
 //# sourceMappingURL=env.js.map

@@ -31,7 +31,7 @@ export default async function () {
   void routes(router)
   return new Promise<Server>((resolve, reject) => {
     const connection = app
-      .listen(env.PORT)
+      .listen(env.PORT, 'localhost')
       .on('listening', () => {
         console.log(`HTTP is listening on ${env.PORT}`)
         resolve(connection)

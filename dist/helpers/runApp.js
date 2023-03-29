@@ -40,7 +40,7 @@ function default_1() {
         void (0, routes_1.default)(router);
         return new Promise((resolve, reject) => {
             const connection = app
-                .listen(env_1.default.PORT)
+                .listen(env_1.default.PORT, 'localhost')
                 .on('listening', () => {
                 console.log(`HTTP is listening on ${env_1.default.PORT}`);
                 resolve(connection);
