@@ -22,11 +22,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const amala_1 = require("amala");
-const getSearchResult_1 = require("@/helpers/getSearchResult");
+const google = require("googlethis");
+const searchOptions_1 = require("@/helpers/searchOptions");
 let SearchController = class SearchController {
     search(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (0, getSearchResult_1.default)(query);
+            return (yield google.search(query.query, searchOptions_1.default)).results;
         });
     }
 };
