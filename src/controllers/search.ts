@@ -1,10 +1,11 @@
 import { Body, Controller, Post } from 'amala'
-import getSearchResult from '@/helpers/getSearchResult'
+import google = require('googlethis')
+import options from '@/helpers/searchOptions'
 
 @Controller('/search')
 export default class ChatController {
   @Post('/query')
   async search(@Body({ required: true }) query: { query: string }) {
-    return await getSearchResult(query)
+    return (await google.search(query.query, options)).results
   }
 }

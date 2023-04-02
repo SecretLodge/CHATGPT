@@ -22,11 +22,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const amala_1 = require("amala");
+<<<<<<< HEAD
 const getSearchResult_1 = require("@/helpers/getSearchResult");
 let ChatController = class ChatController {
+=======
+const google = require("googlethis");
+const searchOptions_1 = require("@/helpers/searchOptions");
+let SearchController = class SearchController {
+>>>>>>> 0face4a... Change method for search
     search(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (0, getSearchResult_1.default)(query);
+            return (yield google.search(query.query, searchOptions_1.default)).results;
         });
     }
 };

@@ -9,7 +9,5 @@ dotenv.config({ path: resolve(cwd(), '.env') })
 export default cleanEnv(process.env, {
   CHATGPT_API: str(),
   CHATGPT_KEY: str(),
-  GOOGLE_KEY: str(),
-  GOOGLE_CX: str(),
   PORT: num({ default: 1337 }),
 })
