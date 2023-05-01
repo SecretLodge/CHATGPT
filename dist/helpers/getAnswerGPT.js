@@ -9,22 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const axios_1 = require("axios");
-const env_1 = require("@/helpers/env");
-const request = axios_1.default.create({
-    method: 'post',
-    baseURL: env_1.default.CHATGPT_API,
-    headers: {
-        Authorization: `Bearer ${env_1.default.CHATGPT_KEY}`,
-        'Content-Type': 'application/json',
-    },
-});
-function getAnswerGPT(messages) {
+const gpt4all_1 = require("gpt4all");
+const model = 'gpt4all-lora-unfiltered-quantized';
+function getAnswerGPT(prompt) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { data } = yield request({
-            data: Object.assign({ model: 'gpt-3.5-turbo' }, messages),
-        });
-        return data.choices[0].message;
+        const gpt4all = new gpt4all_1.GPT4All(model, true);
+        console.log('Starting...');
+        yield gpt4all.init();
+        console.log('Initialized');
+        yield gpt4all.open();
+        console.log('Opened');
+        const response = yield gpt4all.prompt(prompt);
+        gpt4all.close();
+        return response;
     });
 }
 exports.default = getAnswerGPT;

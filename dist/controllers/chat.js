@@ -20,35 +20,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const amala_1 = require("amala");
 const getAnswerGPT_1 = require("@/helpers/getAnswerGPT");
 let ChatController = class ChatController {
-    message(_a) {
-        var messages = __rest(_a, []);
+    chatgpt(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (0, getAnswerGPT_1.default)(messages);
+            return yield (0, getAnswerGPT_1.default)(prompt);
         });
     }
 };
 __decorate([
-    (0, amala_1.Post)('/message'),
+    (0, amala_1.Post)('/prompt'),
     __param(0, (0, amala_1.Body)({ required: true })),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Array]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
-], ChatController.prototype, "message", null);
+], ChatController.prototype, "chatgpt", null);
 ChatController = __decorate([
     (0, amala_1.Controller)('/chat')
 ], ChatController);
